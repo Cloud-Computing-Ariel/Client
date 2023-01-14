@@ -18,7 +18,6 @@ export class DashBoardComponent implements OnInit {
   getHeaderCardsData() {
     this.dashboardService.geHeaderCardsData().subscribe({
       next: (res: any) => {
-        debugger;
         this.headerData = res;
       },
       error: (err) => {

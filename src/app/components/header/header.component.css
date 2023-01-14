@@ -1,0 +1,19 @@
+.container {
+  background-color: aqua;
+  height: 30px;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+.middle-containter {
+}
+.middle-title {
+}
+.right-container::after {
+}
+.time-title {
+  position: absolute;
+  right: 15px;
+  top: 5px;
+}

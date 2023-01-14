@@ -9,6 +9,13 @@ import { DashBoardComponent } from './pages/dash-board/dash-board.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './components/header/header.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'dashboard', component: DashBoardComponent },
+];
 
 @NgModule({
   declarations: [
@@ -17,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     BodyCardComponent,
     HeaderCardComponent,
     DashBoardComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,8 +32,10 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MatIconModule,
     HttpClientModule,
+    RouterModule.forRoot(routes),
   ],
   providers: [],
   bootstrap: [AppComponent],
+  exports: [RouterModule],
 })
 export class AppModule {}
