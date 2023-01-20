@@ -11,10 +11,17 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { RouterModule, Routes } from '@angular/router';
+import { SearchPageComponent } from './pages/search-page/search-page.component';
+import { SearchHeaderComponent } from './components/search-header/search-header.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchBodyComponent } from './components/search-body/search-body.component';
+import { MatTableModule } from '@angular/material/table';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashBoardComponent },
+  { path: 'search', component: SearchPageComponent },
+  { path: '**', component: DashBoardComponent },
 ];
 
 @NgModule({
@@ -25,8 +32,14 @@ const routes: Routes = [
     HeaderCardComponent,
     DashBoardComponent,
     HeaderComponent,
+    SearchPageComponent,
+    SearchHeaderComponent,
+    SearchBodyComponent,
   ],
   imports: [
+    ReactiveFormsModule,
+    MatTableModule,
+    FormsModule,
     BrowserModule,
     NgApexchartsModule,
     BrowserAnimationsModule,
