@@ -11,11 +11,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { RouterModule, Routes } from '@angular/router';
+import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashBoardComponent },
 ];
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ const routes: Routes = [
     MatIconModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
+    SocketIoModule.forRoot(config),
   ],
   providers: [],
   bootstrap: [AppComponent],
