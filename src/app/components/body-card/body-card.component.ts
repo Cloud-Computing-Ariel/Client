@@ -5,13 +5,16 @@ import {
   ApexResponsive,
   ApexChart,
   ChartType,
+  ApexAxisChartSeries,
+  ApexXAxis,
+  ApexTitleSubtitle,
 } from 'ng-apexcharts';
 
 export type ChartOptions = {
-  series: ApexNonAxisChartSeries;
+  series: ApexAxisChartSeries;
   chart: ApexChart;
-  responsive: ApexResponsive[];
-  labels: any;
+  xaxis: ApexXAxis;
+  title: ApexTitleSubtitle;
 };
 
 @Component({
@@ -19,37 +22,39 @@ export type ChartOptions = {
   templateUrl: './body-card.component.html',
   styleUrls: ['./body-card.component.css'],
 })
-export class BodyCardComponent implements OnInit {
-  chartOptions!: ChartOptions;
+export class BodyCardComponent {
+  chartOptions: ChartOptions;
   @Input() chartType!: string;
   @Input() title!: string;
 
-  constructor() {}
-  ngOnInit(): void {
-    this.chartInit();
-  }
-
-  chartInit() {
+  constructor() {
     this.chartOptions = {
-      series: [44, 55, 13, 43, 22],
-      chart: {
-        width: 380,
-        type: this.chartType as ChartType,
-      },
-      labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
-      responsive: [
+      series: [
         {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200,
-            },
-            legend: {
-              position: 'bottom',
-            },
-          },
+          name: 'My-series',
+          data: [10, 41, 35, 51, 49, 62, 69, 91, 148],
         },
       ],
+      chart: {
+        height: 350,
+        type: 'pie',
+      },
+      title: {
+        text: 'My First Angular Chart',
+      },
+      xaxis: {
+        categories: [
+          'Jan',
+          'Feb',
+          'Mar',
+          'Apr',
+          'May',
+          'Jun',
+          'Jul',
+          'Aug',
+          'Sep',
+        ],
+      },
     };
   }
 }

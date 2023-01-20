@@ -11,26 +11,8 @@ import { WebSocketService } from 'src/app/services/web-socket.service';
 export class DashBoardComponent implements OnInit {
   cardHeaderData = CardHeaderData;
   headerData: { num: number }[] = [];
-  constructor(
-    private readonly dashboardService: DashboardService,
-    private readonly socketService: WebSocketService
-  ) {}
+  constructor(private readonly dashboardService: DashboardService) {}
 
-  ngOnInit(): void {
-    this.socketService.getMessage().subscribe((res) => {
-      console.log(res);
-    });
-    this.socketService.sendMessage('Hello there!');
-  }
-  getHeaderCardsData() {
-    this.dashboardService.geHeaderCardsData().subscribe({
-      next: (res: any) => {
-        this.headerData = res;
-      },
-      error: (err) => {
-        this.headerData = [];
-        console.log(err);
-      },
-    });
-  }
+  ngOnInit(): void {}
+  getHeaderCardsData() {}
 }
