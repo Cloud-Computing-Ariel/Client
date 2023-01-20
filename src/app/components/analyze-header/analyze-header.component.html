@@ -1,0 +1,9 @@
+<div class="container">
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="form">
+    <select class="select" formControlName="dropDown">
+      <option value="null">None</option>
+    </select>
+    <input type="date" formControlName="date" />
+    <button class="btn" [disabled]="formGroup.invalid">Search</button>
+  </form>
+</div>

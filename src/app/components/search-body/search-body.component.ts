@@ -1,16 +1,20 @@
-import { Time } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { SearchTableData } from 'src/app/consts/searchpage-data';
+import {
+  SearchTableData,
+  SearchTableCollsToDisplay,
+} from 'src/app/consts/searchpage-data';
 
-export interface Order {
-  ingredient1: number;
-  ingredient2: number;
-  ingredient3: number;
-  ingredient4: number;
-  total: number;
-  time_to_take: number;
-  time: number;
-}
+const MOCK_DATA: SearchTableData[] = [
+  {
+    ingredient1: '4',
+    ingredient2: '12',
+    ingredient3: '555',
+    ingredient4: '64',
+    amount: '2',
+    time_in_process: 'now',
+    time: 'maybe now',
+  },
+];
 
 @Component({
   selector: 'app-search-body',
@@ -20,8 +24,8 @@ export interface Order {
 export class SearchBodyComponent implements OnInit {
   constructor() {}
 
-  displayedColumns: string[] = ['title'];
-  colls = SearchTableData;
+  displayedColumns = SearchTableCollsToDisplay;
+  dataSource = MOCK_DATA;
 
   ngOnInit(): void {}
 }

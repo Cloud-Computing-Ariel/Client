@@ -4,20 +4,21 @@ export interface SearchCity {
 }
 
 export interface SearchTableData {
-  title: string;
+  ingredient1: string;
+  ingredient2: string;
+  ingredient3: string;
+  ingredient4: string;
+  amount: string;
+  time_in_process: string;
+  time: string;
 }
 
-export const SearchTableData: SearchTableData[] = [
-  {
-    title: 'Total number of orders',
-  },
-  {
-    title: 'Total number of open orders',
-  },
-  {
-    title: 'Average time spent',
-  },
-  {
-    title: 'Number of open stores',
-  },
+export const SearchTableCollsToDisplay: string[] = [
+  'ingredient1',
+  'ingredient2',
+  'ingredient3',
+  'ingredient4',
+  'amount',
+  'time_in_process',
+  'time',
 ];

@@ -17,6 +17,8 @@ import { SearchHeaderComponent } from './components/search-header/search-header.
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchBodyComponent } from './components/search-body/search-body.component';
 import { MatTableModule } from '@angular/material/table';
+import { AnalyzePageComponent } from './pages/analyze-page/analyze-page.component';
+import { AnalyzeHeaderComponent } from './components/analyze-header/analyze-header.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -37,6 +39,8 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     SearchPageComponent,
     SearchHeaderComponent,
     SearchBodyComponent,
+    AnalyzePageComponent,
+    AnalyzeHeaderComponent,
   ],
   imports: [
     ReactiveFormsModule,
