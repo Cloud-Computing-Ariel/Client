@@ -3,7 +3,16 @@
     <select class="select" formControlName="dropDown">
       <option value="null">None</option>
     </select>
-    <input type="date" formControlName="date" />
+    <mat-form-field appearance="fill">
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="date" />
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
     <button class="btn" [disabled]="formGroup.invalid">Search</button>
   </form>
 </div>

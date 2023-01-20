@@ -1,8 +1,3 @@
-export interface SearchCity {
-  id: number;
-  name: string;
-}
-
 export interface SearchTableData {
   ingredient1: string;
   ingredient2: string;

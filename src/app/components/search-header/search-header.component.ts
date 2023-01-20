@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-search-header',
@@ -11,12 +11,14 @@ export class SearchHeaderComponent implements OnInit {
 
   constructor(private readonly formBuilder: FormBuilder) {
     this.formGroup = this.formBuilder.group({
-      dropDown: [''],
-      date: [''],
+      dropDown: ['', Validators.required],
+      date: [new Date(), Validators.required],
     });
   }
   ngOnInit(): void {
-    this.formGroup.valueChanges.subscribe((value) => {});
+    this.formGroup.valueChanges.subscribe((value) => {
+      console.log(value);
+    });
   }
 
   onSubmit() {

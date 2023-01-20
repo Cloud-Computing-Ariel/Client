@@ -19,11 +19,16 @@ import { SearchBodyComponent } from './components/search-body/search-body.compon
 import { MatTableModule } from '@angular/material/table';
 import { AnalyzePageComponent } from './pages/analyze-page/analyze-page.component';
 import { AnalyzeHeaderComponent } from './components/analyze-header/analyze-header.component';
+import { AnalyzeBodyComponent } from './components/analyze-body/analyze-body.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashBoardComponent },
   { path: 'search', component: SearchPageComponent },
+  { path: 'analyze', component: AnalyzePageComponent },
   { path: '**', component: DashBoardComponent },
 ];
 const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
@@ -41,8 +46,12 @@ const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
     SearchBodyComponent,
     AnalyzePageComponent,
     AnalyzeHeaderComponent,
+    AnalyzeBodyComponent,
   ],
   imports: [
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     ReactiveFormsModule,
     MatTableModule,
     FormsModule,
