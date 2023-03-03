@@ -37,7 +37,7 @@ export class BodyCardComponent {
       ],
       chart: {
         height: 350,
-        type: 'pie',
+        type: 'bar',
       },
       title: {
         text: 'My First Angular Chart',
