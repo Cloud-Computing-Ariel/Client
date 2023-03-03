@@ -1,4 +1,9 @@
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<table
+  mat-table
+  [dataSource]="dataSource"
+  class="mat-elevation-z8"
+  [ngStyle]="{ width: '70vw' }"
+>
   <ng-container matColumnDef="ingredient1">
     <th mat-header-cell *matHeaderCellDef>Olives</th>
     <td mat-cell *matCellDef="let element">{{ element.ingredient1 }}</td>
