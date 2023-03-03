@@ -1,12 +1,22 @@
 <div class="container">
-  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="form">
-    <select class="select" formControlName="dropDown">
-      <option value="null">None</option>
+  <form [formGroup]="formGroup" class="form">
+    <select
+      class="select"
+      [value]="allBranches && allBranches[0]"
+      formControlName="dropDown"
+    >
+      <ng-container *ngFor="let option of allBranches">
+        <option [value]="option">{{ option }}</option>
+      </ng-container>
     </select>
     <mat-form-field appearance="fill">
       <mat-label>Choose a date</mat-label>
-      <input matInput [matDatepicker]="picker" formControlName="date" />
-      <mat-hint>MM/DD/YYYY</mat-hint>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        (select)="onDateClick()"
+        formControlName="date"
+      />
       <mat-datepicker-toggle
         matIconSuffix
         [for]="picker"

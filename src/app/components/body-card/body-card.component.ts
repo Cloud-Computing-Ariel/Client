@@ -1,20 +1,25 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import {
-  ApexNonAxisChartSeries,
-  ApexResponsive,
   ApexChart,
   ChartType,
   ApexAxisChartSeries,
   ApexXAxis,
   ApexTitleSubtitle,
+  ApexNonAxisChartSeries,
 } from 'ng-apexcharts';
 
 export type ChartOptions = {
-  series: ApexAxisChartSeries;
+  series: ApexNonAxisChartSeries | ApexAxisChartSeries;
   chart: ApexChart;
   xaxis: ApexXAxis;
   title: ApexTitleSubtitle;
+  labels: any;
+  plotOptions: {
+    bar: {
+      horizontal: boolean;
+    };
+  };
 };
 
 @Component({
@@ -22,38 +27,45 @@ export type ChartOptions = {
   templateUrl: './body-card.component.html',
   styleUrls: ['./body-card.component.css'],
 })
-export class BodyCardComponent {
-  chartOptions: ChartOptions;
-  @Input() chartType!: string;
+export class BodyCardComponent implements OnInit {
+  chartOptions!: ChartOptions;
+  @Input() chartType!: ChartType;
   @Input() title!: string;
+  @Input() data!: { data: number[]; categories: string[] };
 
-  constructor() {
+  constructor() {}
+  ngOnInit(): void {
+    this.updateData();
+  }
+
+  updateData() {
     this.chartOptions = {
-      series: [
-        {
-          name: 'My-series',
-          data: [10, 41, 35, 51, 49, 62, 69, 91, 148],
-        },
-      ],
+      series:
+        this.chartType === 'donut'
+          ? this.data.data
+          : [
+              {
+                name: 'My-series',
+                data: this.data.data,
+              },
+            ],
       chart: {
         height: 350,
-        type: 'bar',
+        width: 400,
+        type: this.chartType,
       },
+      plotOptions: {
+        bar: {
+          horizontal: true,
+        },
+      },
+      labels: this.data.categories,
       title: {
-        text: 'My First Angular Chart',
+        text: this.title,
+        align: 'left',
       },
       xaxis: {
-        categories: [
-          'Jan',
-          'Feb',
-          'Mar',
-          'Apr',
-          'May',
-          'Jun',
-          'Jul',
-          'Aug',
-          'Sep',
-        ],
+        categories: this.data.categories,
       },
     };
   }

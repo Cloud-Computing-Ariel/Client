@@ -8,5 +8,5 @@ import { Component, Input } from '@angular/core';
 export class HeaderCardComponent {
   @Input() title!: string;
   @Input() icon!: string;
-  @Input() number!: number;
+  @Input() number?: number;
 }

@@ -1,10 +1,14 @@
 .container {
+  padding-top: 20px;
 }
 
 .head-cards-container {
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-evenly;
+  overflow: auto;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .body-cards-container {

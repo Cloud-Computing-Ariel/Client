@@ -1,13 +1,12 @@
 <div class="container">
-  <div class="title-contaier">
-    <h1 class="title">title</h1>
-  </div>
   <div class="chart-container">
     <apx-chart
       [series]="chartOptions.series"
       [chart]="chartOptions.chart"
       [xaxis]="chartOptions.xaxis"
       [title]="chartOptions.title"
+      [labels]="chartOptions.labels"
+      [plotOptions]="chartOptions.plotOptions"
     ></apx-chart>
   </div>
 </div>

@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
 import { map } from 'rxjs/operators';
 
@@ -8,10 +8,18 @@ import { map } from 'rxjs/operators';
 export class WebSocketService {
   constructor(private socket: Socket) {}
 
-  getMessage() {
-    return this.socket.fromEvent('onDashboardUpdate').pipe(
-      map((data) => {
-        return data;
+  getHeaderCardsData() {
+    return this.socket.fromEvent('onHeaderCardsUpdate').pipe(
+      map((element) => {
+        return element;
+      })
+    );
+  }
+
+  getBodyCardsData() {
+    return this.socket.fromEvent('onBodyCardsUpdate').pipe(
+      map((element) => {
+        return element;
       })
     );
   }
