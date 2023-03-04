@@ -1,17 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {
-  AnalyzeTableData,
-  AnalyzeCollsToDisplay,
-} from 'src/app/consts/analyzepage-data';
-
-const MOCK_DATA: AnalyzeTableData[] = [
-  {
-    confidence: '69%',
-    support: '75%',
-    consequent: 'Olives',
-    antecedent: 'Onions',
-  },
-];
+import { Component, Input, OnInit } from '@angular/core';
+import { AnalyzeCollsToDisplay } from 'src/app/consts/analyzepage-data';
+import { AnalyzeResultsDTO } from 'src/app/utils/helpers';
 
 @Component({
   selector: 'app-analyze-body',
@@ -21,6 +10,7 @@ const MOCK_DATA: AnalyzeTableData[] = [
 export class AnalyzeBodyComponent implements OnInit {
   ngOnInit(): void {}
 
+  @Input() analyzeData: AnalyzeResultsDTO[] = [];
+
   displayedColumns = AnalyzeCollsToDisplay;
-  dataSource = MOCK_DATA;
 }

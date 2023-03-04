@@ -48,4 +48,9 @@ export interface SearchResultsDTO {
   time: number;
 }
 
-export interface AnalyzeResultsDTO {}
+export interface AnalyzeResultsDTO {
+  confidence: string;
+  support: string;
+  consequent: string;
+  antecedent: string;
+}
