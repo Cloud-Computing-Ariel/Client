@@ -1,0 +1,29 @@
+.container {
+  width: 200px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: #bdcdd6;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.title-container {
+  display: flex;
+  justify-content: center;
+}
+.title {
+  font-size: 15px;
+  height: 30px;
+  margin: unset;
+}
+.body-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  height: 50px;
+}
+.icon {
+}
+.number {
+}

@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="head-cards-container">
+    <ng-container *ngFor="let card of cardHeaderData; let i = index">
+      <app-header-card
+        [title]="card.title"
+        [icon]="card.icon"
+        [number]="card.number"
+      ></app-header-card>
+    </ng-container>
+  </div>
+  <div class="body-cards-container">
+    <ng-container *ngFor="let card of cardBodyData; let i = index">
+      <app-body-card
+        [title]="card.title"
+        [data]="card.data"
+        [chartType]="card.chartType"
+      ></app-body-card>
+    </ng-container>
+  </div>
+</div>

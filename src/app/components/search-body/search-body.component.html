@@ -1,0 +1,41 @@
+<table
+  mat-table
+  [dataSource]="dataSource"
+  class="mat-elevation-z8"
+  [ngStyle]="{ width: '70vw' }"
+>
+  <ng-container matColumnDef="ingredient1">
+    <th mat-header-cell *matHeaderCellDef>Olives</th>
+    <td mat-cell *matCellDef="let element">{{ element.ingredient1 }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="ingredient2">
+    <th mat-header-cell *matHeaderCellDef>Mushrooms</th>
+    <td mat-cell *matCellDef="let element">{{ element.ingredient2 }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="ingredient3">
+    <th mat-header-cell *matHeaderCellDef>Onions</th>
+    <td mat-cell *matCellDef="let element">{{ element.ingredient3 }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="ingredient4">
+    <th mat-header-cell *matHeaderCellDef>Corn</th>
+    <td mat-cell *matCellDef="let element">{{ element.ingredient4 }}</td>
+  </ng-container>
+  <ng-container matColumnDef="amount">
+    <th mat-header-cell *matHeaderCellDef>Amount</th>
+    <td mat-cell *matCellDef="let element">{{ element.amount }}</td>
+  </ng-container>
+  <ng-container matColumnDef="timeInProcess">
+    <th mat-header-cell *matHeaderCellDef>Process Time</th>
+    <td mat-cell *matCellDef="let element">{{ element.timeInProcess }}</td>
+  </ng-container>
+  <ng-container matColumnDef="time">
+    <th mat-header-cell *matHeaderCellDef>Time</th>
+    <td mat-cell *matCellDef="let element">{{ element.time }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
