@@ -23,6 +23,8 @@
       ></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
-    <!-- <button class="btn" [disabled]="formGroup.invalid">Search</button> -->
+    <mat-error *ngIf="formGroup.invalid && formGroup.touched"
+      >Please specify branch and a valid date</mat-error
+    >
   </form>
 </div>

@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { DateAdapter } from '@angular/material/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { DashboardService } from 'src/app/services/dashboard.service';
 
 @Component({
   selector: 'app-search-header',
@@ -10,12 +11,14 @@ import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 })
 export class SearchHeaderComponent implements OnInit {
   formGroup: FormGroup;
-  allBranches?: string[];
-  @Output() onDatePicked: EventEmitter<Date> = new EventEmitter();
+  allBranches!: string[];
+  @Output() onDatePicked: EventEmitter<{ searchDate: Date; branch: string }> =
+    new EventEmitter();
 
   constructor(
     private readonly formBuilder: FormBuilder,
-    private readonly dateAdapter: DateAdapter<Date>
+    private readonly dateAdapter: DateAdapter<Date>,
+    private readonly dashboardService: DashboardService
   ) {
     this.dateAdapter.setLocale('he');
     this.formGroup = this.formBuilder.group({
@@ -24,16 +27,26 @@ export class SearchHeaderComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    // TODO: Get all of the branches available in the backend
-    // TODO: Update the allBranches array
-    this.formGroup.valueChanges.subscribe((value) => {
-      // console.log(value);
+    this.dashboardService.getAvailableBranches().subscribe({
+      next: (branches) => {
+        this.allBranches = branches;
+      },
+      error: (error) => {
+        console.error(error);
+      },
     });
   }
 
   onDateClick(date: MatDatepickerInputEvent<Date>) {
-    if (date.value && date.value instanceof Date) {
-      this.onDatePicked.emit(date.value);
+    if (
+      date.value &&
+      date.value instanceof Date &&
+      this.formGroup.controls['dropDown'].value
+    ) {
+      this.onDatePicked.emit({
+        searchDate: date.value,
+        branch: this.formGroup.controls['dropDown'].value,
+      });
     }
   }
 }

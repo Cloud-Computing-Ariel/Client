@@ -12,8 +12,8 @@ export class SearchPageComponent {
 
   searchDataDisplay!: SearchTableData[];
 
-  onDatePicked(date: Date) {
-    this.dashboardService.getSearchResults(date).subscribe({
+  onDatePicked(data: { searchDate: Date; branch: string }) {
+    this.dashboardService.getSearchResults(data).subscribe({
       next: (data) => {
         if (data instanceof Array) {
           this.searchDataDisplay = data;
