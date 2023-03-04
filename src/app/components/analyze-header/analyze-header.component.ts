@@ -18,13 +18,12 @@ export class AnalyzeHeaderComponent implements OnInit {
   }
   ngOnInit(): void {
     this.range.valueChanges.subscribe((value) => {
-      this.onDateSelect.emit(value);
+      if (value && value.start && value.end && value.start < value.end) {
+        this.onDateSelect.emit(value);
+      }
     });
   }
 
-  onSubmit() {
-    console.log(this.range);
-  }
   get form(): { [key: string]: AbstractControl } {
     return this.range.controls;
   }

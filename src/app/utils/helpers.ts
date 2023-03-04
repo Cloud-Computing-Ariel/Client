@@ -37,3 +37,15 @@ export const instanceOfBodyCardData = (
     'numberOfOrders' in object
   );
 };
+
+export interface SearchResultsDTO {
+  olives: number;
+  mushrooms: number;
+  onions: number;
+  corn: number;
+  amount: number;
+  processTime: number;
+  time: number;
+}
+
+export interface AnalyzeResultsDTO {}
