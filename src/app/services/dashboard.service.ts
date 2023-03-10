@@ -10,6 +10,14 @@ import { Observable } from 'rxjs';
 export class DashboardService {
   constructor(private readonly http: HttpClient) {}
 
+  getHeaderCardsData() {
+    return this.http.get(`${environment.apiURL}dashboard/header-cards`);
+  }
+
+  getBodyCardsData() {
+    return this.http.get(`${environment.apiURL}dashboard/body-cards`);
+  }
+
   getSearchResults(data: {
     searchDate: Date;
     branch: string;

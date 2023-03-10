@@ -26,13 +26,14 @@ export class DashBoardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.getBodyCards();
+    this.getHeaderCards();
     this.updateHeaderCards();
     this.updateBodyCards();
-    this.webSocketService.sendMessage(''); // this is to trigger the event, on "production" we will get this when server updates
   }
 
-  updateHeaderCards() {
-    this.webSocketService.getHeaderCardsData().subscribe({
+  getHeaderCards() {
+    this.dashboardService.getHeaderCardsData().subscribe({
       next: (data: unknown) => {
         if (instanceOfHeaderCardData(data)) {
           this.cardHeaderData[0].number = data.totalOrders;
@@ -46,8 +47,43 @@ export class DashBoardComponent implements OnInit {
       },
     });
   }
+
+  getBodyCards() {
+    this.dashboardService.getBodyCardsData().subscribe({
+      next: (data: unknown) => {
+        if (instanceOfHeaderCardData(data)) {
+          this.cardHeaderData[0].number = data.totalOrders;
+          this.cardHeaderData[1].number = data.totalOpenOrders;
+          this.cardHeaderData[2].number = data.avgTimeSpent;
+          this.cardHeaderData[3].number = data.openStores;
+        }
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
+  }
+
+  updateHeaderCards() {
+    this.webSocketService.updateHeaderCardsData().subscribe({
+      next: (data: unknown) => {
+        if (instanceOfBodyCardData(data)) {
+          const newCardsData = JSON.parse(JSON.stringify(this.cardBodyData));
+          newCardsData[0].data = data.topToppingsOrdered;
+          newCardsData[1].data = data.topBranchesLowestWaitTime;
+          newCardsData[2].data = data.DistriByArea;
+          newCardsData[3].data = data.numberOfOrders;
+          this.cardBodyData = newCardsData;
+        }
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
+  }
+
   updateBodyCards() {
-    this.webSocketService.getBodyCardsData().subscribe({
+    this.webSocketService.updateBodyCardsData().subscribe({
       next: (data: unknown) => {
         if (instanceOfBodyCardData(data)) {
           const newCardsData = JSON.parse(JSON.stringify(this.cardBodyData));
