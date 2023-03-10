@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 export class WebSocketService {
   constructor(private socket: Socket) {}
 
-  getHeaderCardsData() {
+  updateHeaderCardsData() {
     return this.socket.fromEvent('onHeaderCardsUpdate').pipe(
       map((element) => {
         return element;
@@ -16,7 +16,7 @@ export class WebSocketService {
     );
   }
 
-  getBodyCardsData() {
+  updateBodyCardsData() {
     return this.socket.fromEvent('onBodyCardsUpdate').pipe(
       map((element) => {
         return element;
