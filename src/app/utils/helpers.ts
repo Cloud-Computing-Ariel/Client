@@ -44,8 +44,8 @@ export interface SearchResultsDTO {
   onions: number;
   corn: number;
   amount: number;
-  processTime: number;
-  time: number;
+  processTime: Date;
+  time: Date;
 }
 
 export interface AnalyzeResultsDTO {

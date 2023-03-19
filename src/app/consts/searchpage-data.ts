@@ -4,7 +4,7 @@ export interface SearchTableData {
   ingredient3: string;
   ingredient4: string;
   amount: string;
-  timeInProcess: string;
+  processTime: string;
   time: string;
 }
 
@@ -14,6 +14,6 @@ export const SearchTableCollsToDisplay: string[] = [
   'ingredient3',
   'ingredient4',
   'amount',
-  'timeInProcess',
+  'processTime',
   'time',
 ];

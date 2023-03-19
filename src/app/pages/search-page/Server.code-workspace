@@ -1,0 +1,23 @@
+{
+  "folders": [
+	{
+		"path": "../../../../../Server"
+	},
+	{
+		"path": "../../../.."
+	},
+	{
+		"path": "../../../../../Pizza Simulator"
+	},
+	{
+		"path": "../../../../../elasticsearch"
+	},
+	{
+		"path": "../../../../../Ilan/Redis-Server"
+	},
+	{
+		"path": "../../../../../Ilan/kafdrop"
+	}
+],
+  "settings": {}
+}
