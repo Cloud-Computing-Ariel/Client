@@ -29,8 +29,6 @@ export const instanceOfBodyCardData = (
   object: any
 ): object is BodyCardDataResponse => {
   return (
-    object &&
-    typeof object === 'object' &&
     'topToppingsOrdered' in object &&
     'topBranchesLowestWaitTime' in object &&
     'DistriByArea' in object &&

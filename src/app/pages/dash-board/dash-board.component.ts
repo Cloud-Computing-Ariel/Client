@@ -26,10 +26,10 @@ export class DashBoardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getBodyCards();
-    this.getHeaderCards();
     this.updateHeaderCards();
     this.updateBodyCards();
+    this.getBodyCards();
+    this.getHeaderCards();
   }
 
   getHeaderCards() {
@@ -51,11 +51,13 @@ export class DashBoardComponent implements OnInit {
   getBodyCards() {
     this.dashboardService.getBodyCardsData().subscribe({
       next: (data: unknown) => {
-        if (instanceOfHeaderCardData(data)) {
-          this.cardHeaderData[0].number = data.totalOrders;
-          this.cardHeaderData[1].number = data.totalOpenOrders;
-          this.cardHeaderData[2].number = data.avgTimeSpent;
-          this.cardHeaderData[3].number = data.openStores;
+        if (instanceOfBodyCardData(data)) {
+          const newCardsData = JSON.parse(JSON.stringify(this.cardBodyData));
+          newCardsData[0].data = data.topToppingsOrdered;
+          newCardsData[1].data = data.topBranchesLowestWaitTime;
+          newCardsData[2].data = data.DistriByArea;
+          newCardsData[3].data = data.numberOfOrders;
+          this.cardBodyData = newCardsData;
         }
       },
       error: (error) => {
@@ -67,13 +69,11 @@ export class DashBoardComponent implements OnInit {
   updateHeaderCards() {
     this.webSocketService.updateHeaderCardsData().subscribe({
       next: (data: unknown) => {
-        if (instanceOfBodyCardData(data)) {
-          const newCardsData = JSON.parse(JSON.stringify(this.cardBodyData));
-          newCardsData[0].data = data.topToppingsOrdered;
-          newCardsData[1].data = data.topBranchesLowestWaitTime;
-          newCardsData[2].data = data.DistriByArea;
-          newCardsData[3].data = data.numberOfOrders;
-          this.cardBodyData = newCardsData;
+        if (instanceOfHeaderCardData(data)) {
+          this.cardHeaderData[0].number = data.totalOrders;
+          this.cardHeaderData[1].number = data.totalOpenOrders;
+          this.cardHeaderData[2].number = data.avgTimeSpent;
+          this.cardHeaderData[3].number = data.openStores;
         }
       },
       error: (error) => {

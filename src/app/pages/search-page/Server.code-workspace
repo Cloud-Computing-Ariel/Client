@@ -1,23 +1,26 @@
 {
   "folders": [
-	{
-		"path": "../../../../../Server"
-	},
-	{
-		"path": "../../../.."
-	},
-	{
-		"path": "../../../../../Pizza Simulator"
-	},
-	{
-		"path": "../../../../../elasticsearch"
-	},
-	{
-		"path": "../../../../../Ilan/Redis-Server"
-	},
-	{
-		"path": "../../../../../Ilan/kafdrop"
-	}
-],
+    {
+      "path": "../../../../../Server"
+    },
+    {
+      "path": "../../../.."
+    },
+    {
+      "path": "../../../../../Pizza Simulator"
+    },
+    {
+      "path": "../../../../../elasticsearch"
+    },
+    {
+      "path": "../../../../../Ilan/Redis-Server"
+    },
+    {
+      "path": "../../../../../Ilan/kafdrop"
+    },
+    {
+      "path": "../../../../../new-redis/Redis-Server"
+    }
+  ],
   "settings": {}
 }
