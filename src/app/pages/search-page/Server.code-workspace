@@ -20,6 +20,12 @@
     },
     {
       "path": "../../../../../new-redis/Redis-Server"
+    },
+    {
+      "path": "../../../../../new-redis/bigML-Server"
+    },
+    {
+      "path": "../../../../../new-redis/Mongo-Server"
     }
   ],
   "settings": {}

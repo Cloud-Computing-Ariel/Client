@@ -4,6 +4,7 @@
       class="select"
       [value]="allBranches && allBranches[0]"
       formControlName="dropDown"
+      (change)="onDateClick()"
     >
       <ng-container *ngFor="let option of allBranches">
         <option [value]="option">{{ option }}</option>
@@ -14,7 +15,7 @@
       <input
         matInput
         [matDatepicker]="picker"
-        (dateChange)="onDateClick($event)"
+        (dateChange)="onDateClick()"
         formControlName="date"
       />
       <mat-datepicker-toggle

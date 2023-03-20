@@ -37,16 +37,10 @@ export class SearchHeaderComponent implements OnInit {
     });
   }
 
-  onDateClick(date: MatDatepickerInputEvent<Date>) {
-    if (
-      date.value &&
-      date.value instanceof Date &&
-      this.formGroup.controls['dropDown'].value
-    ) {
-      this.onDatePicked.emit({
-        searchDate: date.value,
-        branch: this.formGroup.controls['dropDown'].value,
-      });
-    }
+  onDateClick() {
+    this.onDatePicked.emit({
+      searchDate: this.formGroup.controls['date'].value,
+      branch: this.formGroup.controls['dropDown'].value,
+    });
   }
 }
