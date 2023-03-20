@@ -2,34 +2,61 @@
   mat-table
   [dataSource]="dataSource"
   class="mat-elevation-z8"
-  [ngStyle]="{ width: '70vw' }"
+  [ngStyle]="{ width: '80vw' }"
 >
-  <ng-container matColumnDef="ingredient1">
+  <ng-container matColumnDef="olives">
     <th mat-header-cell *matHeaderCellDef>Olives</th>
-    <td mat-cell *matCellDef="let element">{{ element.ingredient1 }}</td>
+    <td mat-cell *matCellDef="let element">{{ element.olives }}</td>
   </ng-container>
 
-  <ng-container matColumnDef="ingredient2">
+  <ng-container matColumnDef="mushrooms">
     <th mat-header-cell *matHeaderCellDef>Mushrooms</th>
-    <td mat-cell *matCellDef="let element">{{ element.ingredient2 }}</td>
+    <td mat-cell *matCellDef="let element">{{ element.mushrooms }}</td>
   </ng-container>
 
-  <ng-container matColumnDef="ingredient3">
-    <th mat-header-cell *matHeaderCellDef>Onions</th>
-    <td mat-cell *matCellDef="let element">{{ element.ingredient3 }}</td>
+  <ng-container matColumnDef="pepperoni">
+    <th mat-header-cell *matHeaderCellDef>Pepperoni</th>
+    <td mat-cell *matCellDef="let element">{{ element.pepperoni }}</td>
   </ng-container>
 
-  <ng-container matColumnDef="ingredient4">
+  <ng-container matColumnDef="sausage">
+    <th mat-header-cell *matHeaderCellDef>Sausage</th>
+    <td mat-cell *matCellDef="let element">{{ element.sausage }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="green pepper">
+    <th mat-header-cell *matHeaderCellDef>Green Pepper</th>
+    <td mat-cell *matCellDef="let element">{{ element.greenPepper }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="extra cheese">
+    <th mat-header-cell *matHeaderCellDef>Extra Cheese</th>
+    <td mat-cell *matCellDef="let element">{{ element.extraCheese }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="tomato">
+    <th mat-header-cell *matHeaderCellDef>Tomato</th>
+    <td mat-cell *matCellDef="let element">{{ element.tomato }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="bacon">
+    <th mat-header-cell *matHeaderCellDef>Bacon</th>
+    <td mat-cell *matCellDef="let element">{{ element.bacon }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="corn">
     <th mat-header-cell *matHeaderCellDef>Corn</th>
-    <td mat-cell *matCellDef="let element">{{ element.ingredient4 }}</td>
+    <td mat-cell *matCellDef="let element">{{ element.corn }}</td>
   </ng-container>
-  <ng-container matColumnDef="amount">
-    <th mat-header-cell *matHeaderCellDef>Amount</th>
-    <td mat-cell *matCellDef="let element">{{ element.amount }}</td>
+
+  <ng-container matColumnDef="pineapple">
+    <th mat-header-cell *matHeaderCellDef>Pineapple</th>
+    <td mat-cell *matCellDef="let element">{{ element.pineapple }}</td>
   </ng-container>
-  <ng-container matColumnDef="timeInProcess">
+
+  <ng-container matColumnDef="processTime">
     <th mat-header-cell *matHeaderCellDef>Process Time</th>
-    <td mat-cell *matCellDef="let element">{{ element.timeInProcess }}</td>
+    <td mat-cell *matCellDef="let element">{{ element.processTime }}</td>
   </ng-container>
   <ng-container matColumnDef="time">
     <th mat-header-cell *matHeaderCellDef>Time</th>

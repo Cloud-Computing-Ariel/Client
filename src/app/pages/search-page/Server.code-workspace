@@ -1,0 +1,32 @@
+{
+  "folders": [
+    {
+      "path": "../../../../../Server"
+    },
+    {
+      "path": "../../../.."
+    },
+    {
+      "path": "../../../../../Pizza Simulator"
+    },
+    {
+      "path": "../../../../../elasticsearch"
+    },
+    {
+      "path": "../../../../../Ilan/Redis-Server"
+    },
+    {
+      "path": "../../../../../Ilan/kafdrop"
+    },
+    {
+      "path": "../../../../../new-redis/Redis-Server"
+    },
+    {
+      "path": "../../../../../new-redis/bigML-Server"
+    },
+    {
+      "path": "../../../../../new-redis/Mongo-Server"
+    }
+  ],
+  "settings": {}
+}

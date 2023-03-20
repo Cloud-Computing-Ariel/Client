@@ -29,8 +29,6 @@ export const instanceOfBodyCardData = (
   object: any
 ): object is BodyCardDataResponse => {
   return (
-    object &&
-    typeof object === 'object' &&
     'topToppingsOrdered' in object &&
     'topBranchesLowestWaitTime' in object &&
     'DistriByArea' in object &&
@@ -44,8 +42,8 @@ export interface SearchResultsDTO {
   onions: number;
   corn: number;
   amount: number;
-  processTime: number;
-  time: number;
+  processTime: Date;
+  time: Date;
 }
 
 export interface AnalyzeResultsDTO {
